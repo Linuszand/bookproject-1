@@ -31,14 +31,14 @@
 # Manual tests | 1
 ## Verify HTTP Status Code for Successful GET Request | 1
 ### Objective: |  1
-To verify that the API returns the correct HTTP status code (e.g., 200 OK) for a successful GET request.
+To verify that the API returns the correct HTTP status code (200 OK) for a successful GET request.
 ### Test Procedure: | 1
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
-3. Select the HTTP method for the endpoint you want to test (e.g., GET).
+3. Select the HTTP method for the endpoint you want to test (GET).
 4. Enter the URL for the books endpoint(http://localhost:3457/books).
 5. Click on the "Send" button to send the request to the API.
-6. Verify that the API returns the correct HTTP status code (e.g., 200 OK) for the successful GET request.
+6. Verify that the API returns the correct HTTP status code (200 OK) for the successful GET request.
 Record the test results in a test report.
 ### Test Data: | 1
 - Endpoint: http://localhost:3457/books
@@ -51,16 +51,31 @@ Record the test results in a test report.
 |Test Case|Expected Result|Actual Result|Pass/fail|
 |:--------|:--------------|:------------|:--------|
 |Verify HTTP Status Code for Successful GET Request|API returns HTTP status code 200 OK for successful GET request|API returns HTTP status code 200 OK for successful GET request|Pass|
-
 ### Test Report | 1
-
+The API was successfully tested for returning the correct HTTP status code for a successful GET request. The test case passed with the actual result matching the expected result.
 
 ## Check if the API returns the expected data format (e.g., JSON, XML) in the response. | 2
 ### Objective: | 2
+To verify that that the API returns the correct data format in the response(In this case JSON) after sending a GET request.
 ### Test Procedure: | 2
+1. Open Postman and navigate to the collection containing the endpoint you want to test.
+2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
+3. Select the HTTP method for the endpoint you want to test (GET).
+4. Enter the URL for the books endpoint(http://localhost:3457/books).
+5. Click on the "Send" button to send the request to the API.
+6. Verify that the API returns the correct format in the headers view in the response body. Which in this case is JSON format.
 ### Test Data: | 2
+Test Data:
+- Endpoint: http://localhost:3000/books
+- HTTP Method: GET
+- Expected header Content-type: application/json; charset=utf-8
 ### Test Environment: | 2
+- Postman
+- API endpoint running on localhost
 ### Test Results | 2
+|Test Case|Expected Result|Actual Result|Pass/fail|
+|:--------|:--------------|:------------|:--------|
+|To verify that that the API returns the correct data format in the response|The response body to have the content type: application/json; charset=utf-8|The response body has the content type: application/json; charset=utf-8|Pass|
 ### Test Report | 2
 
 
