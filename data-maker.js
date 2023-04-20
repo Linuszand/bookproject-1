@@ -44,7 +44,6 @@ async function booksData(mode = true) {
       const title = titleWords.charAt(0).toUpperCase() + titleWords.slice(1);
       book.title = title;
 
-
       book.authors = [author._id];
 
       book.genre = ['Fantasy', 'Comedy', 'Action', 'Drama', 'Sci-fi', 'Horror', 'Documentary', 'Romance', 'Thriller', 'History', 'Western'][faker.datatype.number({ min: 0, max: 10 })];
@@ -76,8 +75,6 @@ async function booksData(mode = true) {
 }
 
 import { authorModel } from './routes/authors.js'
-
-
 
 async function authorsData(mode = true) {
   if (!mode) {

@@ -1,4 +1,4 @@
-- [API Documentation | 1](#api-documentation--1)
+- [Bookhome Documentation | 1](#bookhome-documentation--1)
 - [Endpoints and HTTP Methods | 2](#endpoints-and-http-methods--2)
   - [/books | 2.1](#books--21)
     - [GET](#get)
@@ -22,7 +22,7 @@
     - [DELETE](#delete-2)
     - [PUT](#put-2)
 
-# API Documentation | 1
+# Bookhome Documentation | 1
 The bookhome API provides a RESTful interface for books, authors and owners
 
 # Endpoints and HTTP Methods | 2
