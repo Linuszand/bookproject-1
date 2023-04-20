@@ -158,7 +158,7 @@ Response:
 ```
 ## /books/authors | 2.3
 ### GET
-Retrieves a list of all books.
+Retrieves a list of all authors.
 
 Response: 
 ```json
