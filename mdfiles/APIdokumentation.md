@@ -15,7 +15,7 @@ The bookhome API provides a RESTful interface for books, authors and owners
 Retrieves a list of all books.
 
 Response:
-[
+`[
     {
         "_id": "644129d475e983071dea2e0a",
         "authors": [
@@ -32,12 +32,12 @@ Response:
         "description": "Sed libero velit praesentium. Incidunt quasi quo odit. Ut quibusdam et.",
         "__v": 0
     }
-]
+]`
 ## /books/:id
 Retrieves one book based on the ID.
 
 Response:
-{
+`{
     "_id": "644129d475e983071dea2e0a",
     "authors": [
         {
@@ -55,7 +55,7 @@ Response:
     "releaseDate": "2022-06-16T03:37:39.500Z",
     "description": "Sed libero velit praesentium. Incidunt quasi quo odit. Ut quibusdam et.",
     "__v": 0
-}
+}`
 
 ## /authors
 
