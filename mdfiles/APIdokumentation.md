@@ -1,10 +1,10 @@
 1. bookhome API documentation
 This API provides a RESTful interface for books, authors and owners.
 
-# Endpoints
+# API Documentation 1
 
-## HTML Method
+# Endpoints 2
+## HTTP Methods
 
-- [Endpoints](#endpoints)
-  - [HTML Method](#html-method)
+ 
 
