@@ -51,7 +51,6 @@ Response:
     },
     and it continues...
 ]
-
 ```
 
 ### POST
@@ -366,5 +365,3 @@ Response:
     }
 }
 ```
-
-
