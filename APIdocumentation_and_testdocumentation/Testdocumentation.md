@@ -66,7 +66,7 @@ To verify that that the API returns the correct data format in the response(In t
 6. Verify that the API returns the correct format in the headers view in the response body. Which in this case is JSON format.
 ### Test Data: | 2
 Test Data:
-- Endpoint: http://localhost:3000/books
+- Endpoint: http://localhost:3457/books
 - HTTP Method: GET
 - Expected header Content-type: application/json; charset=utf-8
 ### Test Environment: | 2
@@ -75,18 +75,33 @@ Test Data:
 ### Test Results | 2
 |Test Case|Expected Result|Actual Result|Pass/fail|
 |:--------|:--------------|:------------|:--------|
-|To verify that that the API returns the correct data format in the response|The response body to have the content type: application/json; charset=utf-8|The response body has the content type: application/json; charset=utf-8|Pass|
+|Verify that that the API returns the correct data format in the response|The response body to have the content type: application/json; charset=utf-8|The response body has the content type: application/json; charset=utf-8|Pass|
 ### Test Report | 2
-
+The API response body has the correct data format, which in this case was JSON. The expected result matches the actual result.
 
 ## Ensure that the API returns the correct HTTP status code (e.g., 400 Bad Request) for an invalid request. | 3
 ### Objective: | 3
+To verify that the API returns the correct HTTP status code (e.g., 400 Bad request) for a successful GET request.
 ### Test Procedure: | 3
+1. Open Postman and navigate to the collection containing the endpoint you want to test.
+2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
+3. Select the HTTP method for the endpoint you want to test (GET).
+4. Enter the URL for the books endpoint but make it invalid (http://localhost:3457/bookss).
+5. Click on the "Send" button to send the request to the API.
+6. Verify that the API returns the correct HTTP response (e.g, 400 Bad Request)
 ### Test Data: | 3
+- Endpoint: http://localhost:3000/bookss
+- HTTP Method: GET
+- Expected HTTP Status Code: 400 Bad request
 ### Test Environment: | 3
+- Postman
+- API endpoint running on localhost
 ### Test Results | 3
+|Test Case|Expected Result|Actual Result|Pass/fail|
+|:--------|:--------------|:------------|:--------|
+|Verify that the API returns the correct HTTP status code (e.g., 400 Bad request) for a successful GET request.|API returns HTTP status code 400 bad request|API returns HTTP status code 404 not found|Fail|
 ### Test Report | 3
-
+The API was unsuccesfully tested for returning invalid HTTP status code 400 bad request. It gave us a 404 not found status code. The expected result did not match the actual result.
 ## Test if the API returns the correct data when querying with specific filters or search criteria. | 4
 ### Objective: | 4
 ### Test Procedure: | 4
