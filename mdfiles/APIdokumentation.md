@@ -9,8 +9,8 @@ The bookhome API provides a RESTful interface for books, authors and owners
 
 # Endpoints and HTTP Methods 2
 ## /books
-| Endpoint | HTTP Method | Request Body | Response Body |
-| -------- | ---------- | ------------ | -------------- |
+| Endpoint | HTTP Method | Request Body | Response Body  |
+| -------- | ---------- | ------------ | ------------------------------------------------------------------------- |
 | /books   | GET        | N/A          | 
 |          |            |              | ```[                                             {                                                 "_id": "644129d475e983071dea2e0a",                                                 "authors": [                                                     {                                                         "_id": "643f1a41176e03c50b34dfd2",                                                         "name": "Daija Cruickshank"                                                     }                                                 ],
                                                  "bookOwner": [],
