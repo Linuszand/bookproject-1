@@ -65,7 +65,6 @@ To verify that that the API returns the correct data format in the response(In t
 5. Click on the "Send" button to send the request to the API.
 6. Verify that the API returns the correct format in the headers view in the response body. Which in this case is JSON format.
 ### Test Data: | 2
-Test Data:
 - Endpoint: http://localhost:3457/books
 - HTTP Method: GET
 - Expected header Content-type: application/json; charset=utf-8
@@ -104,10 +103,26 @@ To verify that the API returns the correct HTTP status code (e.g., 400 Bad reque
 The API was unsuccesfully tested for returning invalid HTTP status code 400 bad request. It gave us a 404 not found status code. The expected result did not match the actual result.
 ## Test if the API returns the correct data when querying with specific filters or search criteria. | 4
 ### Objective: | 4
+To verify that we get the correct data when querying with specific filters or search criteria
 ### Test Procedure: | 4
+1. Open Postman and navigate to the collection containing the endpoint you want to test.
+2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
+3. Select the HTTP method for the endpoint you want to test (GET).
+4. Enter the URL for the endpoint you want to test (http://localhost:3457/books).
+5. Click on the "Send" button to send the request to the API.
+6. Verify that the API returns the correct data when querying with the specific filters or search criteria(e.g., ?title=Rerum%20velit)
 ### Test Data: | 4
+- Endpoint: http://localhost:3457/books
+- HTTP Method: GET
+- Expecting endpoint to have the correct data when searching for title: title, authors, genre, rating, releaseDate, description and bookOwner
 ### Test Environment: | 4
+- Postman
+- API endpoint running on localhost
 ### Test Results | 4
+|Test Case|Expected Result|Actual Result|Pass/fail|
+|:--------|:--------------|:------------|:--------|
+|verify that we get the correct data when querying with specific filters or search criteria|Response body to have correct data with a title query(?title=:name:) when sending a GET request|Response body has the correct data when sending a GET request with title query(?title=:name:)|Pass|
 ### Test Report | 4
+The response body had the correct data when querying with specific filters or search criteria. The expected result matches the actual result.
 
 

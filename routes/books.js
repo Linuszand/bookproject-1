@@ -17,26 +17,46 @@ const bookSchema = new Schema({
 export const bookModel = mongoose.model("books", bookSchema);
 
 booksRouter.post("/", async (request, response) => {
-  const book = new mongoose.models.books();
-  book.title = request.body.title;
-  book.authors = request.body.authors;
-  book.genre = request.body.genre;
-  book.rating = request.body.rating;
-  book.releaseDate = request.body.releaseDate;
-  book.description = request.body.description;
-  book.bookOwner = request.body.bookOwner;
-  const result = await book.save();
-  response.json(result);
+  const book = new mongoose.models.books()
+  book.title = request.body.title
+  book.authors = request.body.authors
+  book.genre = request.body.genre
+  book.rating = request.body.rating
+  book.releaseDate = request.body.releaseDate
+  book.description = request.body.description
+  book.bookOwner = request.body.bookOwner
+  const result = await book.save()
+  response.json(result)
 });
 
 booksRouter.get("/", async (request, response) => {
-  const books = await mongoose.models.books.find().populate("authors", "name").populate("bookOwner", "name");
+  let query = {}
 
+  if (request.query.title) {
+    query.title = new RegExp(request.query.title, 'i')
+  }
+  if (request.query.genre) {
+    query.genre = new RegExp(request.query.genre, 'i')
+  }
+  if (request.query.rating) {
+    query.rating = request.query.rating
+  }
+  if (request.query.releaseDate) {
+    query.releaseDate = request.query.releaseDate
+  }
+  if (request.query.authors) {
+    const authorNames = request.query.authors.split(',').map(name => name.trim())
+    const authors = await mongoose.models.authors.find({ name: { $in: authorNames } }).select('_id')
+    const authorIds = authors.map(author => author._id)
+    query.authors = { $in: authorIds };
+  }
+   
+  const books = await mongoose.models.books.find(query).populate("authors", "name").populate("bookOwner", "name")
   const formattedBooks = books.map(book => ({
-    ...book.toObject(), releaseDate: new Date(book.releaseDate).toISOString().substring(0, 10)
-  }));
+  ...book.toObject(), releaseDate: new Date(book.releaseDate).toISOString().substring(0, 10)
+  }))
   response.json(formattedBooks)
-});
+})
 
 
 booksRouter.get("/:id", async (request, response) => {
@@ -51,7 +71,7 @@ booksRouter.delete("/:id", async (request, response) => {
 
 booksRouter.put("/:id", async (request, response) => {
   const book = await mongoose.models.books.findByIdAndUpdate(request.params.id, request.body, { new: true });
-  response.json({ message: "Successfully updated", book });
+  response.json({ message: "Successfully updated", book })
 });
 
 export default booksRouter;
