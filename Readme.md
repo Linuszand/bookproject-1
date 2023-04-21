@@ -1,7 +1,8 @@
-# bookproject-1
-Hello, this is the README file.
+# Bookhome
+Welcome to the Bookhome API!
 
+Use either of these to connect to MongoDBCompass
 mongodb+srv://linus:eQqNJRreQJXZVAt2@bookhome.yvh0dhe.mongodb.net/test
 mongodb+srv://matthias:4iHM1ZDYtp7Yf6gz@bookhome.yvh0dhe.mongodb.net/test
 
-Book Finder: Ett API som söker efter böcker utifrån kriterier som titel, författare, genre och utgivningsdatum samt ger information om böcker och betyg.
+API that searches after books from criterias such as title, author, genre and date of release together with information about books and ratings.
