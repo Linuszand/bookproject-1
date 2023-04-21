@@ -121,7 +121,7 @@ To verify that we get the correct data when querying with specific filters or se
 ### Test Results | 4
 |Test Case|Expected Result|Actual Result|Pass/fail|
 |:--------|:--------------|:------------|:--------|
-|verify that we get the correct data when querying with specific filters or search criteria|Response body to have correct data with a title query(?title=:name:) when sending a GET request|Response body has the correct data when sending a GET request with title query(?title=:name:)|Pass|
+|Verify that we get the correct data when querying with specific filters or search criteria|Response body to have correct data with a title query(?title=:name:) when sending a GET request|Response body has the correct data when sending a GET request with title query(?title=:name:)|Pass|
 ### Test Report | 4
 The response body had the correct data when querying with specific filters or search criteria. The expected result matches the actual result.
 
