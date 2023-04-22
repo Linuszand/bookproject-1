@@ -236,7 +236,7 @@ To verify that each endpoint in the API returns an appropriate status code for e
 ### Test Data | 8
 - Endpoint: http://localhost:3457/books
 - HTTP Method: GET
-- Expecting there to be the correct response body and that the status code is OK(200 OK)
+- Expecting the response body to be correct and that the status code is OK for each HTTP method for every endpoint(200 OK)
 ### Test Results | 8
 |Test Case|Expected Result|Actual Result|Pass/fail|
 |:--------|:--------------|:------------|:--------|
