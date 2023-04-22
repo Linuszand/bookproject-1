@@ -232,7 +232,7 @@ To verify that each endpoint in the API returns an appropriate status code for e
 3. Select the HTTP method for the endpoint you want to test (GET).
 4. Enter the URL for the books endpoint but make it invalid (http://localhost:3457/bookss).
 5. Click on the "Send" button for each HTTP method on each endpoint.
-6. Verify that you get an appropriate response body and status code(200 OK).
+6. Verify that you get an appropriate response body and status code for each HTTP Method in each endpoint(200 OK).
 ### Test Data | 8
 - Endpoint: http://localhost:3457/books
 - HTTP Method: GET
