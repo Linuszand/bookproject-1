@@ -12,7 +12,7 @@ async function run() {
   mongoose.connect(connection, { dbName: 'bookhome' })
 
   await authorsData(false)
-  await ownersData(false)
+  await ownersData()
   await booksData(false)
 
   process.exit()
