@@ -1,3 +1,5 @@
+# Table of Contents | 0
+- [Table of Contents | 0](#table-of-contents--0)
 - [Manual tests | 1](#manual-tests--1)
   - [Verify HTTP Status Code for Successful GET Request | 1.1](#verify-http-status-code-for-successful-get-request--11)
     - [Objective |  1.1](#objective---11)
@@ -165,12 +167,12 @@ To verify that the API returns the correct HTTP status code (200 OK) for a succe
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
 3. Select the HTTP method for the endpoint you want to test (GET).
-4. Enter the URL for the books endpoint. (http://localhost:3457/books).
+4. Enter the URL for the books endpoint. (http://localhost:3457/api/books).
 5. Click on the "Send" button to send the request to the API.
 6. Verify that the API returns the correct HTTP status code (200 OK) for the successful GET request.
 Record the test results in a test report.
 ### Test Data | 1.1
-- Endpoint: http://localhost:3457/books
+- Endpoint: http://localhost:3457/api/books
 - HTTP Method: GET
 - Expected HTTP Status Code: 200 OK
 ### Test Results | 1.1
@@ -187,11 +189,11 @@ To verify that that the API returns the correct data format in the response(In t
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
 3. Select the HTTP method for the endpoint you want to test (GET).
-4. Enter the URL for the books endpoint. (http://localhost:3457/books).
+4. Enter the URL for the books endpoint. (http://localhost:3457/api/books).
 5. Click on the "Send" button to send the request to the API.
 6. Verify that the API returns the correct format in the headers view in the response body. Which in this case is JSON format.
 ### Test Data | 1.2
-- Endpoint: http://localhost:3457/books
+- Endpoint: http://localhost:3457/api/books
 - HTTP Method: GET
 - Expected header Content-type: application/json; charset=utf-8
 ### Test Results | 1.2
@@ -208,7 +210,7 @@ To verify that the API returns the correct HTTP status code (e.g., 400 Bad reque
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
 3. Select the HTTP method for the endpoint you want to test (GET).
-4. Enter the URL for the books endpoint but make it invalid (http://localhost:3457/bookss).
+4. Enter the URL for the books endpoint but make it invalid (http://localhost:3457/api/bookss).
 5. Click on the "Send" button to send the request to the API.
 6. Verify that the API returns the correct HTTP response (e.g, 400 Bad Request)
 ### Test Data | 1.3
@@ -229,11 +231,11 @@ To verify that we get the correct data when querying with specific filters or se
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
 3. Select the HTTP method for the endpoint you want to test (GET).
-4. Enter the URL for the endpoint you want to test (http://localhost:3457/books).
+4. Enter the URL for the endpoint you want to test (http://localhost:3457/api/books).
 5. Click on the "Send" button to send the request to the API.
 6. Verify that the API returns the correct data when querying with the specific filters or search criteria(e.g., ?title=Rerum%20velit)
 ### Test Data | 1.4
-- Endpoint: http://localhost:3457/books
+- Endpoint: http://localhost:3457/api/books
 - HTTP Method: GET
 - Expecting endpoint to have the correct data when searching for title: title, authors, genre, rating, releaseDate, description and bookOwner
 ### Test Results | 1.4
@@ -250,11 +252,11 @@ To verify that the API returns paginated results when a large number of records 
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
 3. Select the HTTP method for the endpoint you want to test (GET).
-4. Enter the URL for the books endpoints. (http://localhost:3457/books).
+4. Enter the URL for the books endpoints. (http://localhost:3457/api/books).
 5. Click on the "Send" button to send the request to the API.
 6. Verify if there's any paginated results in the headers in the response.
 ### Test Data | 1.5
-- Endpoint: http://localhost:3457/books
+- Endpoint: http://localhost:3457/api/books
 - HTTP Method: GET
 - Expecting headers to have a paginated result
 ### Test Results | 1.5
@@ -270,11 +272,11 @@ To verify that the API can handle special characters and non-English text correc
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
 3. Select the HTTP method for the endpoint you want to test (GET).
-4. Enter the URL for the books endpoint. (http://localhost:3457/books).
+4. Enter the URL for the books endpoint. (http://localhost:3457/api/books).
 5. Click on the "Send" button to send the request to the API.
 1.6. Verify that the input data and response body can handle special characters and non-English text correctly.
 ### Test Data | 1.6
-- Endpoint: http://localhost:3457/books
+- Endpoint: http://localhost:3457/api/books
 - HTTP Method: GET
 - Expecting it to be able to take non-English and special characters in the input data and response body correctly
 ### Test Results | 1.6
@@ -290,11 +292,11 @@ To verify that the API can handle concurrent requests to ensure that it can hand
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
 3. Select the HTTP method for the endpoint you want to test (GET).
-4. Enter the URL for the books endpoint. (http://localhost:3457/books).
+4. Enter the URL for the books endpoint. (http://localhost:3457/api/books).
 5. Click on the "Send" button multiple times to send the multiple request to the API.
 6. Verify that the every response you get is a success and it doesn't throw an error.
 ### Test Data | 1.7
-- Endpoint: http://localhost:3457/books
+- Endpoint: http://localhost:3457/api/books
 - HTTP Method: GET
 - Expecting the response to not throw an error after many GET-requests
 ### Test Results | 1.7
@@ -316,7 +318,7 @@ To verify that each endpoint in the API returns an appropriate status code for e
 6. Verify that you get an appropriate response body and status code for each HTTP Method in each endpoint(200 OK).
 7. Repeat until you've tested each HTTP method for each endpoint.
 ### Test Data | 1.8
-- Endpoint: http://localhost:3457/books
+- Endpoint: http://localhost:3457/api/books
 - HTTP Method: GET
 - Expecting the response body to be correct and that the status code is OK for each HTTP method for every endpoint(200 OK)
 ### Test Results | 1.8
@@ -333,12 +335,12 @@ To verify that the API correctly handles updates to records that already exist, 
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
 3. Select the HTTP method for the endpoint you want to test (GET, PUT(POST, DELETE if needed)).
-4. Enter the URL for the books endpoint: (http://localhost:3457/books/{id}).
+4. Enter the URL for the books endpoint: (http://localhost:3457/api/books/{id}).
 5. Click on the "Send" button to send the request to the API and check the response.
 6. Update one book in the API using the PUT HTTP method.
 7. Make sure that the book is successfully updated.
 ### Test Data | 1.9
-- Endpoint: http://localhost:3457/books
+- Endpoint: http://localhost:3457/api/books
 - HTTP Method: GET, PUT(POST, DELETE if needed)
 - Expecting the updated book to be updated
 ### Test Results | 1.9
@@ -355,27 +357,62 @@ To verify that the API's performance under heavy load is good enough when making
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
 3. Select the HTTP method for the endpoint you want to test (GET, PUT(POST, DELETE if needed)).
-4. Enter the URL for the books endpoint: (http://localhost:3457/books/{id}).
-5. Click on the "Send" button to send the request to the API and check the response.
-6. Update one book in the API using the PUT HTTP method.
-7. Make sure that the book is successfully updated.
+4. Enter the URL for the books endpoint: (http://localhost:3457/api/books/{id}).
+5. Click on the "Send" button a lot of times or use the Postman runner to iterate one GET-request many times.
+6. Ensure that the API's performs well enough. It should be under at least 500 ms response time.
+
 ### Test Data | 1.10
+- Endpoint: http://localhost:3457/api/books
+- HTTP Method: GET
+- Expecting the API to be able to handle a heavy load from multiple users sending GET-requests
 ### Test Results | 1.10
+|Test Case|Expected Result|Actual Result|Pass/fail|
+|:--------|:--------------|:------------|:--------|
+|Test the API’s performance under heavy load, simulating a large number of users making requests simultaneously|The API to have to have a response time that is less than 500 ms.|The API responded much faster than 500 ms|Pass|
 ### Test Report | 1.10
+The API succeeded in performing well under a heavy load. The expected result matches the actual result.
 
 ## Verify that the API can recover gracefully from failures, such as database connection issues without compromising data integrity. | 1.11
 ### Objective | 1.11
+To verify that the API can recover after a failure such as your network failing while connected to the database.
 ### Test Procedure | 1.11
+1. Make sure you're on for example Postman and can send a GET-request.
+2. Disconnect from your network.
+3. Send a GET-Request to the http://localhost:3457/api/books endpoint.
+4. Make sure it gives an appropriate error response.
+5. Go online again and make sure the database is working fine without any issues or changes in data by sending a GET-request to the api/books endpoint.
 ### Test Data | 1.11
+- Endpoint: http://localhost:3457/api/books
+- HTTP Method: GET
+- Expecting the API to be able to recover after a sudden database connection issue without compromising data intergrity
 ### Test Results | 1.11
+|Test Case|Expected Result|Actual Result|Pass/fail|
+|:--------|:--------------|:------------|:--------|
+|Verify that the API can recover gracefully from failures, such as database connection issues without compromising data integrity|The API to send an appropriate error message if there's a connection issue with the database and make sure the data doesn't change or disappear after the database comes online again|The API responds with an appropriate error message if i try to send a GET-request while offline and the data hasn't changed after sending a GET-request when going online again|Pass|
 ### Test Report | 1.11
+The data integrity of my database has not been corrupted or changed in any way, shape or form after a network failure while connected to the database. The expected result matches the actual reesult
 
 ## Test the API’s ability to handle edge cases, such as requests with missing or invalid parameters, and ensure that appropriate error messages are returned. | 1.12
 ### Objective | 1.12
+To verify that the API can handle edge cases, such as requests with missing or invalid parameters. I need to ensure that appropriate error messages are returned.
 ### Test Procedure | 1.12
+1. Open Postman and navigate to the collection containing the endpoint you want to test.
+2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
+3. Select the HTTP method for the endpoint you want to test (GET).
+4. Enter the URL for the books endpoint with invalid or missing parameters: (http://localhost:3457/api/books?what=hey or http://localhost:3457/api/books? ).
+5. Click on the "Send" button to send the request.
+6. Make sure you get an appropriate response back, either an error message or a list of all books.
+
 ### Test Data | 1.12
+- Endpoint: http://localhost:3457/api/books?what=hey or http://localhost:3457/api/books?
+- HTTP Method: GET
+- Expecting the API to be able give an appropriate response after typing in invalid search parameters or missing search parameters.
 ### Test Results | 1.12
+|Test Case|Expected Result|Actual Result|Pass/fail|
+|:--------|:--------------|:------------|:--------|
+Test the API’s ability to handle edge cases, such as requests with missing or invalid parameters, and ensure that appropriate error messages are returned|The API to give either an appropriate error message or a list of all books after sending a GET-request with invalid or missing search parameters|The API to give either an appropriate error message or a list of all books after sending a GET-request with invalid or missing search parameters|Pass|
 ### Test Report | 1.12
+The API sent back a list of all the books with invalid or missing search parameters. The expected result matches the actual result.
 
 ## Verify that the API correctly implements rate limiting or throttling mechanisms to prevent abuse or excessive use of resources. | 1.13
 ### Objective | 1.13
@@ -392,7 +429,7 @@ To verify that the API returns the correct HTTP status code.
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
 3. Select the HTTP method for the endpoint you want to test (GET, PUT(POST, DELETE if needed)).
-4. Enter the URL for the books endpoint: (http://localhost:3457/books/{id}).
+4. Enter the URL for the books endpoint: (http://localhost:3457/api/books/{id}).
 4. Write a test for checking status code for the books endpoint.
 5. Click on the "Send" button to send the request to the API and check if the test passed by clicking at the test results close to the response body.
 

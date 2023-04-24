@@ -31,7 +31,7 @@ booksRouter.post("/", async (request, response) => {
 
 booksRouter.get("/", async (request, response) => {
   let query = {}
-
+  const limit = parseInt(request.query.limit) || 10
   if (request.query.title) {
     query.title = new RegExp(request.query.title, 'i')
   }
@@ -59,7 +59,7 @@ booksRouter.get("/", async (request, response) => {
     query.authors = { $in: authorIds }
   }
   
-  const books = await mongoose.models.books.find(query).limit().populate("authors", "name").populate("bookOwner", "name")
+  const books = await mongoose.models.books.find(query).limit(limit).populate("authors", "name").populate("bookOwner", "name")
   const formattedBooks = books.map(book => ({
   ...book.toObject(), releaseDate: new Date(book.releaseDate).toISOString().substring(0, 10)
   }))

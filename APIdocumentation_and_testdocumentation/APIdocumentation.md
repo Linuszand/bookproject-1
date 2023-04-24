@@ -34,12 +34,16 @@
 The bookhome API provides a RESTful interface for books, authors and owners
 ## Quick Start | 1.1
 ```
-http://localhost:3457/api/books to get a list of all books
+http://localhost:3457/api/books | to get a list of all books
 
-http://localhost:3457/api/authors to get a list of all 
+http://localhost:3457/api/authors | to get a list of all 
 authors
 
-http://localhost:3457/api/owners to get a list of all owners
+http://localhost:3457/api/owners | to get a list of all owners
+
+Add an {id} to the end of the endpoint to get one book, author or owner and not a list.
+
+example: http://localhost:3457/api/books/644691a8f8fdbc7b4399669e
 ```
 
 # Endpoints and HTTP Methods explained with Examples | 2
@@ -76,26 +80,29 @@ Add a book to the list of books.
 Request:
 ```json
 {
-   "title": "Deadly Gun",
+   "title": "Deadly Gunsss我的你",
    "rating": 5,
-   "releaseDate": "1999-03-01",
-   "rating": 3
-   "description": "Patrick Bateman's day to day life as a psycho in America.",
-   "authors": [{"_id": "643f1a41176e03c50b34dfdb"}],
-   "owners": [{"_id": "643f1a43176e03c50b34e0a2"}]
+   "releaseDate": "1499-03-01",
+   "rating": 3,
+   "description": "Zuo Wong Chang Long.",
+   "authors": [{"_id": "64444af490eb4d24306287e5"}],
+   "bookOwner": [{"_id": "6445b6d800c865f1ba2be0a3"}]
 }
 ```
 Response:
 ```json
 {
     "authors": [
-        "643f1a41176e03c50b34dfdb"
+        "64444af490eb4d24306287e5"
     ],
-    "_id": "644135c108d69e11c6881ef0",
-    "title": "Deadly Gun",
-    "rating": 5,
-    "releaseDate": "1999-03-01T00:00:00.000Z",
-    "description": "Patrick Bateman's day to day life as a psycho in America.",
+    "bookOwner": [
+        "6445b6d800c865f1ba2be0a3"
+    ],
+    "_id": "64469f99f0aff9c2681ed97f",
+    "title": "Deadly Gunsss我的你",
+    "rating": 3,
+    "releaseDate": "1499-03-01T00:00:00.000Z",
+    "description": "Zuo Wong Chang Long.",
     "__v": 0
 }
 ```
@@ -387,7 +394,7 @@ Response:
 ```
 api/books?title=:name:
 
-example: http://localhost:3457/api/authors?name=Electa%20Farrell
+example: http://localhost:3457/api/books?title=Maxime
 
 api/books?genre=:genre:
 
@@ -400,6 +407,10 @@ example: http://localhost:3457/api/books?rating=3
 api/books?releaseDate=:year:
 
 example: http://localhost:3457/api/books?releaseDate=1955
+
+api/books?limit=:number:
+
+example: http://localhost:3457/api/books?limit=3
 ```
 authors and bookOwner search queries have not been implemented yet.
 
@@ -407,7 +418,7 @@ authors and bookOwner search queries have not been implemented yet.
 ```
 api/authors?name=:name:
 
-example: http://localhost:3457/api/authors?name=Alanis
+example: http://localhost:3457/api/authors?name=Electa%20Farrell
 
 api/authors?age=:age:
 
