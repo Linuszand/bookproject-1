@@ -311,7 +311,7 @@ To verify that each endpoint in the API returns an appropriate status code for e
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
 3. Select the HTTP methods for the endpoints you want to test (GET, POST, PUT & DELETE).
-4. Enter the URL for the each endpoint following the objective: (http://localhost:3457/endpoint & http://localhost:3457/endpoint/:id).
+4. Enter the URL for the each endpoint following the objective: (http://localhost:3457/endpoint & http://localhost:3457/endpoint/{id}).
 5. Click on the "Send" button for each HTTP method on each endpoint.
 6. Verify that you get an appropriate response body and status code for each HTTP Method in each endpoint(200 OK).
 7. Repeat until you've tested each HTTP method for each endpoint.
@@ -333,17 +333,32 @@ To verify that the API correctly handles updates to records that already exist, 
 1. Open Postman and navigate to the collection containing the endpoint you want to test.
 2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
 3. Select the HTTP method for the endpoint you want to test (GET, PUT(POST, DELETE if needed)).
-4. Enter the URL for the books endpoint: (http://localhost:3457/books/:id).
+4. Enter the URL for the books endpoint: (http://localhost:3457/books/{id}).
 5. Click on the "Send" button to send the request to the API and check the response.
 6. Update one book in the API using the PUT HTTP method.
 7. Make sure that the book is successfully updated.
 ### Test Data | 1.9
+- Endpoint: http://localhost:3457/books
+- HTTP Method: GET, PUT(POST, DELETE if needed)
+- Expecting the updated book to be updated
 ### Test Results | 1.9
+|Test Case|Expected Result|Actual Result|Pass/fail|
+|:--------|:--------------|:------------|:--------|
+|Check if the API correctly handles updates to existing records, ensuring that changes are saved and reflected in subsequent requests|API to update a book based on it's ID and for it to b saved after sending a GET request|The API successfully updates a book based on it's ID, and it is saved after checking with a GET request|Pass|
 ### Test Report | 1.9
+The API was successfully tested for updating a book based on it's ID and then making sure it's saved by doing a GET request after an update.
 
 ## Test the API’s performance under heavy load, simulating a large number of users making requests simultaneously. | 1.10
 ### Objective | 1.10
+To verify that the API's performance under heavy load is good enough when making a large number of requests simultaneously.
 ### Test Procedure | 1.10
+1. Open Postman and navigate to the collection containing the endpoint you want to test.
+2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
+3. Select the HTTP method for the endpoint you want to test (GET, PUT(POST, DELETE if needed)).
+4. Enter the URL for the books endpoint: (http://localhost:3457/books/{id}).
+5. Click on the "Send" button to send the request to the API and check the response.
+6. Update one book in the API using the PUT HTTP method.
+7. Make sure that the book is successfully updated.
 ### Test Data | 1.10
 ### Test Results | 1.10
 ### Test Report | 1.10
@@ -372,7 +387,15 @@ To verify that the API correctly handles updates to records that already exist, 
 # Automatic tests | 2
 ## Validate that the API returns the correct HTTP status code (e.g., 200 OK) for a successful GET request. | 2.1
 ### Objective | 2.1
+To verify that the API returns the correct HTTP status code.
 ### Test Procedure | 2.1
+1. Open Postman and navigate to the collection containing the endpoint you want to test.
+2. Create a new request by clicking on the "New" button in the top left corner of the Postman window.
+3. Select the HTTP method for the endpoint you want to test (GET, PUT(POST, DELETE if needed)).
+4. Enter the URL for the books endpoint: (http://localhost:3457/books/{id}).
+4. Write a test for checking status code for the books endpoint.
+5. Click on the "Send" button to send the request to the API and check if the test passed by clicking at the test results close to the response body.
+
 ### Test Data | 2.1
 ### Test Results | 2.1
 ### Test Report | 2.1
@@ -430,8 +453,7 @@ To verify that the API correctly handles updates to records that already exist, 
 ### Objective | 2.9
 To verify that blablablabla
 ### Test Procedure | 2.9
-1. Go to blabla
-2. 
+
 ### Test Data | 2.9
 
 ### Test Results | 2.9
@@ -464,5 +486,4 @@ To verify that blablablabla
 ### Test Data | 2.13
 ### Test Results | 2.13
 ### Test Report | 2.13
-
 

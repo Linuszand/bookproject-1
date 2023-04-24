@@ -25,7 +25,22 @@ ownersRouter.post("/", async (request, response) => {
 });
 
 ownersRouter.get("/", async (request, response) => {
-  const owners = await mongoose.models.owners.find()
+  let query = {}
+
+  if (request.query.name) {
+    query.name = new RegExp(request.query.name, 'i')
+  }
+  
+  if (request.query.email) {
+    query.email = new RegExp(request.query.email, 'i')
+  }
+  if (request.query.address) {
+    query.address = new RegExp(request.query.address, 'i')
+  }
+  if (request.query.age) {
+    query.age = request.query.age
+  }
+  const owners = await mongoose.models.owners.find(query)
   response.json(owners);
 });
 

@@ -23,7 +23,19 @@ authorsRouter.post("/", async (request, response) => {
 });
 
 authorsRouter.get("/", async (request, response) => {
-  const authors = await mongoose.models.authors.find()
+  let query = {}
+
+  if (request.query.name) {
+    query.name = new RegExp(request.query.name, 'i')
+  }
+  if (request.query.age) {
+    query.age = request.query.age
+  }
+  if (request.query.gender) {
+    query.gender = new RegExp(request.query.gender, 'i')
+  }
+
+  const authors = await mongoose.models.authors.find(query)
   response.json(authors);
 });
 

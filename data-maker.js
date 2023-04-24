@@ -12,8 +12,8 @@ async function run() {
   mongoose.connect(connection, { dbName: 'bookhome' })
 
   await authorsData(false)
-  await ownersData()
-  await booksData(false)
+  await ownersData(false)
+  await booksData()
 
   process.exit()
 }
@@ -48,7 +48,7 @@ async function booksData(mode = true) {
 
       book.genre = ['Fantasy', 'Comedy', 'Action', 'Drama', 'Sci-fi', 'Horror', 'Documentary', 'Romance', 'Thriller', 'History', 'Western'][faker.datatype.number({ min: 0, max: 10 })];
       book.rating = faker.datatype.number({ min: 1, max: 5 });
-      book.releaseDate = faker.date.past();
+      book.releaseDate = faker.date.past(80);
       book.description = faker.lorem.paragraph();
 
       try {
@@ -101,8 +101,6 @@ async function authorsData(mode = true) {
 }
 
 import { ownerModel } from './routes/owners.js'
-
-
 
 async function ownersData(mode = true) {
   if (!mode) {
