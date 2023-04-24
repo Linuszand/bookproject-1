@@ -1,7 +1,7 @@
-import Router from "express";
-import mongoose, { Schema } from "mongoose";
+import Router from "express"
+import mongoose, { Schema } from "mongoose"
 
-const booksRouter = Router();
+const booksRouter = Router()
 
 const bookSchema = new Schema({
   title: { type: String, required: true, unique: true },
@@ -41,38 +41,45 @@ booksRouter.get("/", async (request, response) => {
   if (request.query.rating) {
     query.rating = request.query.rating
   }
-  if (request.query.releaseDate) {
-    query.releaseDate = request.query.releaseDate
-  }
+ if (request.query.releaseDate) {
+  const releaseDate = new Date(request.query.releaseDate);
+  const yearStart = new Date(`${releaseDate.getFullYear()}-01-01`);
+  const yearEnd = new Date(`${releaseDate.getFullYear()}-12-31`);
+
+  query.releaseDate = {
+    $gte: yearStart,
+    $lte: yearEnd
+  };
+}
+
   if (request.query.authors) {
     const authorNames = request.query.authors.split(',').map(name => name.trim())
     const authors = await mongoose.models.authors.find({ name: { $in: authorNames } }).select('_id')
     const authorIds = authors.map(author => author._id)
-    query.authors = { $in: authorIds };
+    query.authors = { $in: authorIds }
   }
-   
-  const books = await mongoose.models.books.find(query).populate("authors", "name").populate("bookOwner", "name")
+  
+  const books = await mongoose.models.books.find(query).limit().populate("authors", "name").populate("bookOwner", "name")
   const formattedBooks = books.map(book => ({
   ...book.toObject(), releaseDate: new Date(book.releaseDate).toISOString().substring(0, 10)
   }))
   response.json(formattedBooks)
 })
 
-
 booksRouter.get("/:id", async (request, response) => {
-  const book = await mongoose.models.books.findById(request.params.id).populate("authors");
+  const book = await mongoose.models.books.findById(request.params.id).populate("authors")
   response.json(book);
-});
+})
 
 booksRouter.delete("/:id", async (request, response) => {
-  const deletebook = await mongoose.models.books.findByIdAndDelete(request.params.id);
-  response.json({ message: "book deleted successfully", deleted_book_name: deletebook.name, data: deletebook });
-});
+  const deletebook = await mongoose.models.books.findByIdAndDelete(request.params.id)
+  response.json({ message: "book deleted successfully", deleted_book_name: deletebook.name, data: deletebook })
+})
 
 booksRouter.put("/:id", async (request, response) => {
-  const book = await mongoose.models.books.findByIdAndUpdate(request.params.id, request.body, { new: true });
+  const book = await mongoose.models.books.findByIdAndUpdate(request.params.id, request.body, { new: true })
   response.json({ message: "Successfully updated", book })
-});
+})
 
-export default booksRouter;
+export default booksRouter
 
