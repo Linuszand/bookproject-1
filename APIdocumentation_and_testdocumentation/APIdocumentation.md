@@ -4,31 +4,31 @@
 - [Bookhome Documentation | 1](#bookhome-documentation--1)
   - [Quick Start | 1.1](#quick-start--11)
 - [Endpoints and HTTP Methods explained with Examples | 2](#endpoints-and-http-methods-explained-with-examples--2)
-  - [/books | 2.1](#books--21)
+  - [api/books | 2.1](#apibooks--21)
     - [GET](#get)
     - [POST](#post)
-  - [/books/{id} | 2.2](#booksid--22)
+  - [api/books/{id} | 2.2](#apibooksid--22)
     - [GET](#get-1)
     - [DELETE](#delete)
     - [PUT](#put)
-  - [/books/authors | 2.3](#booksauthors--23)
+  - [api/books/authors | 2.3](#apibooksauthors--23)
     - [GET](#get-2)
     - [POST](#post-1)
-  - [/books/authors/{id} | 2.4](#booksauthorsid--24)
+  - [api/books/authors/{id} | 2.4](#apibooksauthorsid--24)
     - [GET](#get-3)
     - [DELETE](#delete-1)
     - [PUT](#put-1)
-  - [/books/owners | 2.5](#booksowners--25)
+  - [api/books/owners | 2.5](#apibooksowners--25)
     - [GET](#get-4)
     - [POST](#post-2)
-  - [/books/owners/{id} | 2.6](#booksownersid--26)
+  - [api/books/owners/{id} | 2.6](#apibooksownersid--26)
     - [GET](#get-5)
     - [DELETE](#delete-2)
     - [PUT](#put-2)
 - [Search Queries for Endpoints | 3](#search-queries-for-endpoints--3)
-  - [/books search queries 3.1](#books-search-queries-31)
-  - [/authors search queries 3.2](#authors-search-queries-32)
-  - [/owners search queries 3.3](#owners-search-queries-33)
+  - [api/books search queries 3.1](#apibooks-search-queries-31)
+  - [api/authors search queries 3.2](#apiauthors-search-queries-32)
+  - [api/owners search queries 3.3](#apiowners-search-queries-33)
 
 # Bookhome Documentation | 1
 The bookhome API provides a RESTful interface for books, authors and owners
@@ -43,7 +43,7 @@ http://localhost:3457/api/owners to get a list of all owners
 ```
 
 # Endpoints and HTTP Methods explained with Examples | 2
-## /books | 2.1
+## api/books | 2.1
 ### GET
 Retrieves a list of all books.
 
@@ -103,7 +103,7 @@ Response:
 
 
 
-## /books/{id} | 2.2
+## api/books/{id} | 2.2
 ### GET
 Retrieves one book based on it's ID.
 
@@ -182,7 +182,7 @@ Response:
     }
 }
 ```
-## /books/authors | 2.3
+## api/books/authors | 2.3
 ### GET
 Retrieves a list of all book-authors.
 
@@ -221,7 +221,7 @@ Response:
     "__v": 0
 }
 ```
-## /books/authors/{id} | 2.4
+## api/books/authors/{id} | 2.4
 ### GET
 Retrieves one booked based on it's ID.
 
@@ -278,7 +278,7 @@ Response:
     }
 }
 ```
-## /books/owners | 2.5
+## api/books/owners | 2.5
 ### GET
 Retrieves a list of all book-owners 
 
@@ -321,7 +321,7 @@ Response:
 }
 ```
 
-## /books/owners/{id} | 2.6
+## api/books/owners/{id} | 2.6
 ### GET
 Retrieves one owner based on it's ID
 
@@ -383,56 +383,56 @@ Response:
 }
 ```
 # Search Queries for Endpoints | 3
-## /books search queries 3.1
+## api/books search queries 3.1
 ```
-/books?title=:name:
+api/books?title=:name:
 
 example: http://localhost:3457/api/authors?name=Electa%20Farrell
 
-/books?genre=:genre:
+api/books?genre=:genre:
 
 example: http://localhost:3457/api/books?genre=Fantasy
 
-/books?rating=:number:
+api/books?rating=:number:
 
 example: http://localhost:3457/api/books?rating=3
 
-/books?releaseDate=:year:
+api/books?releaseDate=:year:
 
 example: http://localhost:3457/api/books?releaseDate=1955
 ```
 authors and bookOwner search queries have not been implemented yet.
 
-## /authors search queries 3.2
+## api/authors search queries 3.2
 ```
-/authors?name=:name:
+api/authors?name=:name:
 
 example: http://localhost:3457/api/authors?name=Alanis
 
-/authors?age=:age:
+api/authors?age=:age:
 
 example: http://localhost:3457/api/authors?age=23
 
-/authors?gender=:female or male:
+api/authors?gender=:female or male:
 
 example: http://localhost:3457/api/authors?gender=male
 ```
-## /owners search queries 3.3
+## api/owners search queries 3.3
 ```
-/owners?name=:name:
+api/owners?name=:name:
 
 example: http://localhost:3457/api/owners?name=Ted
 
-/owners?age=:age:
+api/owners?age=:age:
 
 example: http://localhost:3457/api/owners?age=26
 
-/owners?email=:email:
+api/owners?email=:email:
 
 example: http://localhost:3457/api/owners?
 email=Amani40@hotmail.com
 
-/owners?address=:address
+api/owners?address=:address
 
 example: http://localhost:3457/api/owners?
 address=Nicolette%20Grove%209
