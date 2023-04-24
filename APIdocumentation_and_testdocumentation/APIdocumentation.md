@@ -1,5 +1,5 @@
 - [Bookhome Documentation | 1](#bookhome-documentation--1)
-- [Quick Start](#quick-start)
+  - [Quick Start | 1.1](#quick-start--11)
 - [Endpoints and HTTP Methods explained with Examples | 2](#endpoints-and-http-methods-explained-with-examples--2)
   - [/books | 2.1](#books--21)
     - [GET](#get)
@@ -29,7 +29,7 @@
 
 # Bookhome Documentation | 1
 The bookhome API provides a RESTful interface for books, authors and owners
-# Quick Start
+## Quick Start | 1.1
 ```
 http://localhost:3457/api/books to get a list of all books
 
