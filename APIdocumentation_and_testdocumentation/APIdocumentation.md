@@ -41,7 +41,7 @@ authors
 
 http://localhost:3457/api/owners | to get a list of all owners
 
-Add an {id} to the end of the endpoint to get one book, author or owner and not a list.
+Add an {id} to the end of an endpoint to get one book, author or owner and not a list.
 
 example: http://localhost:3457/api/books/644691a8f8fdbc7b4399669e
 ```
