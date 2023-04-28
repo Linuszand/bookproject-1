@@ -8,12 +8,14 @@ let books = []
 let authors = []
 let owners = []
 
+let genreList = ['Fantasy', 'Comedy', 'Action', 'Drama', 'Sci-fi', 'Horror', 'Documentary', 'Romance', 'Thriller', 'History', 'Western']
+
 async function run() {
   mongoose.connect(connection, { dbName: 'bookhome' })
 
   await authorsData(false)
   await ownersData(false)
-  await booksData()
+  await booksData(false)
 
   process.exit()
 }
@@ -35,18 +37,21 @@ async function booksData(mode = true) {
   await bookModel.deleteMany();
 
   // Generate books for each author
+  let fakerGenreRandomInt = faker.datatype.number({ min: 0, max: 10 })
   for (const author of authors) {
-    const numOfBooks = getRandomInt(3, 4);
-    for (let i = 0; i < numOfBooks; i++) {
+    const bookNumber = getRandomInt(3, 4);
+    for (let i = 0; i < bookNumber; i++) {
       const book = new bookModel();
-      const bookTitle = Math.floor(Math.random() * 3) + 1;
+      // generates 1-3 words randomly from faker.lorem.words and then turns the first letter in the title to uppercase + the rest words(titleWords.slice(1))
+      const bookTitle = Math.round(Math.random() * 3) + 1;
       const titleWords = faker.lorem.words(bookTitle);
       const title = titleWords.charAt(0).toUpperCase() + titleWords.slice(1);
       book.title = title;
-
+      // Assigns a book to the author id
       book.authors = [author._id];
+      console.log(author._id)
 
-      book.genre = ['Fantasy', 'Comedy', 'Action', 'Drama', 'Sci-fi', 'Horror', 'Documentary', 'Romance', 'Thriller', 'History', 'Western'][faker.datatype.number({ min: 0, max: 10 })];
+      book.genre = genreList[fakerGenreRandomInt];
       book.rating = faker.datatype.number({ min: 1, max: 5 });
       book.releaseDate = faker.date.past(80);
       book.description = faker.lorem.paragraph();

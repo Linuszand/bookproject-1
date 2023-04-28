@@ -1,7 +1,13 @@
 import express from 'express'
 const api = express()
 api.use(express.json())
-
+// Rate limiting to prevent abuse
+import rateLimit from "express-rate-limit";
+const limiter = rateLimit({
+  windowMs: 60000, // 1 minute
+  max: 100, // limit to 100 requests per windowMs
+});
+api.use(limiter);
 
 import mongoose from 'mongoose'
 const connection = "mongodb+srv://linus:eQqNJRreQJXZVAt2@bookhome.yvh0dhe.mongodb.net/test"

@@ -3,6 +3,7 @@
 - [Table of Contents | 0](#table-of-contents--0)
 - [Bookhome Documentation | 1](#bookhome-documentation--1)
   - [Quick Start | 1.1](#quick-start--11)
+- [Authorization and Authentication](#authorization-and-authentication)
 - [Endpoints and HTTP Methods explained with Examples | 2](#endpoints-and-http-methods-explained-with-examples--2)
   - [api/books | 2.1](#apibooks--21)
     - [GET](#get)
@@ -29,6 +30,7 @@
   - [api/books search queries 3.1](#apibooks-search-queries-31)
   - [api/authors search queries 3.2](#apiauthors-search-queries-32)
   - [api/owners search queries 3.3](#apiowners-search-queries-33)
+- [Error Handling](#error-handling)
 
 # Bookhome Documentation | 1
 The bookhome API provides a RESTful interface for books, authors and owners
@@ -41,10 +43,12 @@ authors
 
 http://localhost:3457/api/owners | to get a list of all owners
 
-Add an {id} to the end of an endpoint to get one book, author or owner and not a list.
+Add an {id} to the end of an endpoint to get one book, author or owner.
 
 example: http://localhost:3457/api/books/644691a8f8fdbc7b4399669e
 ```
+# Authorization and Authentication
+This API is local, so right now you can only access it by copying my API-code and using my connections tring to connect to the API.
 
 # Endpoints and HTTP Methods explained with Examples | 2
 ## api/books | 2.1
@@ -55,21 +59,23 @@ Response:
 ```json
 [
     {
-        "_id": "644129d475e983071dea2e0a",
+        "_id": "644aab25c6add5f281a77112",
         "authors": [
             {
-                "_id": "643f1a41176e03c50b34dfd2",
-                "name": "Daija Cruickshank"
+                "_id": "6448860601e8ff679d84964b",
+                "name": "Charles Hirthe"
             }
         ],
-        "bookOwner": [],
-        "title": "Dolores",
-        "genre": "Drama",
-        "rating": 5,
-        "releaseDate": "2022-06-16",
-        "description": "Sed libero velit praesentium. Incidunt quasi quo odit. Ut quibusdam et.",
+        "title": "Deadly Gunsss我的你",
+        "rating": 3,
+        "releaseDate": "1499-03-01",
+        "description": "Zuo Wong Chang Long.",
+        "bookOwner": {
+            "_id": "6448860801e8ff679d84970a",
+            "name": "Karson Gibson"
+        },
         "__v": 0
-    },
+    }
     and it continues...
 ]
 ```
@@ -85,24 +91,22 @@ Request:
    "releaseDate": "1499-03-01",
    "rating": 3,
    "description": "Zuo Wong Chang Long.",
-   "authors": [{"_id": "64444af490eb4d24306287e5"}],
-   "bookOwner": [{"_id": "6445b6d800c865f1ba2be0a3"}]
+   "authors": [{"_id": "6448860601e8ff679d84964b"}],
+   "bookOwner": {"_id": "6448860801e8ff679d84970a"}
 }
 ```
 Response:
 ```json
 {
     "authors": [
-        "64444af490eb4d24306287e5"
+        "6448860601e8ff679d84964b"
     ],
-    "bookOwner": [
-        "6445b6d800c865f1ba2be0a3"
-    ],
-    "_id": "64469f99f0aff9c2681ed97f",
+    "_id": "644aab25c6add5f281a77112",
     "title": "Deadly Gunsss我的你",
     "rating": 3,
     "releaseDate": "1499-03-01T00:00:00.000Z",
     "description": "Zuo Wong Chang Long.",
+    "bookOwner": "6448860801e8ff679d84970a",
     "__v": 0
 }
 ```
@@ -164,27 +168,23 @@ Updates one book based on it's ID.
 Request:
 ```json
 {
-    "bookOwner": [{"_id": "643ebed1e371d74236c0f1a4" }],
-    "genre": "Drama"
+    "title": "Lord of the Rings updated"
 }
 ```
 Response:
 ```json
 {
     "message": "Successfully updated",
-    "book": {
-        "_id": "644129d475e983071dea2e0d",
+    "updatebook": {
+        "_id": "6448860c01e8ff679d849849",
         "authors": [
-            "643f1a41176e03c50b34dfd2"
+            "6448860701e8ff679d84965f"
         ],
-        "bookOwner": [
-            "643f1a43176e03c50b34e0a0"
-        ],
-        "title": "Nesciunt quasi",
-        "genre": "Weird Shit",
-        "rating": 3,
-        "releaseDate": "2022-07-20T23:49:10.893Z",
-        "description": "Non provident velit perspiciatis accusamus excepturi. Dicta rerum maiores. Fugiat consequuntur libero blanditiis. Architecto hic architecto iure cumque. Eos cum laudantium nam harum ab illo temporibus possimus.",
+        "title": "Lord of the Rings updated",
+        "genre": "Thriller",
+        "rating": 5,
+        "releaseDate": "2019-11-28T08:45:19.028Z",
+        "description": "Earum animi quasi error. Est necessitatibus ipsum perspiciatis corporis ut tempora. Asperiores alias occaecati blanditiis repellat repellendus repellat culpa veritatis. Animi sed mollitia excepturi magni delectus veniam voluptas optio repellat.",
         "__v": 0
     }
 }
@@ -391,6 +391,8 @@ Response:
 ```
 # Search Queries for Endpoints | 3
 ## api/books search queries 3.1
+api/books has limit=10 as default
+
 ```
 api/books?title=:name:
 
@@ -411,8 +413,16 @@ example: http://localhost:3457/api/books?releaseDate=1955
 api/books?limit=:number:
 
 example: http://localhost:3457/api/books?limit=3
+
+api/books?offset=:number:
+
+example: http://localhost:3457/api/books?offset=20
+
+api/books?authors=:author:
+
+example: http://localhost:3457/api/books?authors=Zoe%20Jenkins
 ```
-authors and bookOwner search queries have not been implemented yet.
+
 
 ## api/authors search queries 3.2
 ```
@@ -448,3 +458,10 @@ api/owners?address=:address
 example: http://localhost:3457/api/owners?
 address=Nicolette%20Grove%209
 ```
+
+# Error Handling
+|Error Code|Error Name|Description|Possible Cause|Possible Solution|
+|:---------|:---------|:----------|:-------------|:----------------|
+|400|Bad request|API Cannot process request because of invalid syntax|Invalid request parameters or missing required parameters|Check the request parameters and make sure they're valid|
+|404|Not found|The requested response could not be found|Invalid endpoint or deleted object/identifier|Make sure the object/identifier or endpoint exists before you make the request|
+|500|Internal Server Error|Something happened to the server that prevents it from fulfilling the request|Server-side error or bug or internet connection fail|Make sure database is connected and running or contact server owner/administrator|

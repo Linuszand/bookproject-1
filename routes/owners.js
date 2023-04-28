@@ -5,7 +5,7 @@ const ownersRouter = Router();
 
 const ownerSchema = new Schema({
   name: String,
-  age: String,
+  age: Number,
   email: { type: String, unique: true },
   address: { type: String, required: true, unique: true }
 });
