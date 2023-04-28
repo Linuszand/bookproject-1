@@ -11,12 +11,13 @@
 # Bookhome | 1
 Welcome to the Bookhome API!
 
-Connect to MongoDBCompass and use this connection string to connect to API:
-mongodb+srv://linus:eQqNJRreQJXZVAt2@bookhome.yvh0dhe.mongodb.net/test
-
-API that searches after books from criterias such as title, genre, authors, rating and date of release together with information about the books, their authors, description and owners.
+API that searches after books from criterias such as title, genre, authors, rating and date of release together with information about the books, their authors, description and owners. It also has search criteria for the authors and owners! Deep dive into the Bookhome API!
 
 Open workspace on postman.com: https://www.postman.com/aviation-engineer-97338859/workspace/bookproject/overview
+
+Check below to see instructions for how to be able to run this API!
+
+You need a git clone and to make a new project on MongoDB Atlas!
 
 # Step by Step Instructions to get access to repository | 2
 1. Go to the respository page on GitHub(https://github.com/Linuszand/bookproject-1).
@@ -34,7 +35,7 @@ Open workspace on postman.com: https://www.postman.com/aviation-engineer-9733885
 4. Then go to "Network access" and Add your IP address to the whitelist to able to connect to the database.
 5. After that you need to get the connection string by clicking on connect.
 6. Replace my URI in the api.js`("mongodb+srv://linus:eQqNJRreQJXZVAt2@bookhome.yvh0dhe.mongodb.net/test")` with your URI `(mongodb+srv://:username:::password:@bookhome.yvh0dhe.mongodb.net/test)`
-7. Also replace the `mongoose.connect(connection, { dbName: 'bookhome' })` with your cluster name
+7. Last but not least replace the `mongoose.connect(connection, { dbName: 'bookhome' })` with your cluster name
 
 ```
 const connection = "mongodb+srv://linus:eQqNJRreQJXZVAt2@bookhome.yvh0dhe.mongodb.net/test"
