@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "25bf114b-6304-4229-8584-fbeafc4b1ded",
+		"name": "BookProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26968382",
+		"_collection_link": "https://www.postman.com/aviation-engineer-97338859/workspace/my-workspace/collection/26968382-25bf114b-6304-4229-8584-fbeafc4b1ded?action=share&creator=26968382&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3457/api/books?title=Deadly%20Gunsss我的你",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3457",
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Deadly%20Gunsss我的你"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\": \"Deadly Gunsss我的你\",\r\n   \"rating\": 5,\r\n   \"releaseDate\": \"1499-03-01\",\r\n   \"rating\": 3,\r\n   \"description\": \"Zuo Wong Chang Long.\",\r\n   \"authors\": [{\"_id\": \"6448860601e8ff679d84964b\"}],\r\n   \"bookOwner\": {\"_id\": \"6448860801e8ff679d84970a\"}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3457/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3457",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete id",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "update id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Lord of the Rings\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3457/api/books/644691a8f8fdbc7b439966a7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3457",
+							"path": [
+								"api",
+								"books",
+								"644691a8f8fdbc7b439966a7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "authors",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3457/api/authors/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3457",
+							"path": [
+								"api",
+								"authors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3457/api/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3457",
+							"path": [
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3457/api/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3457",
+							"path": [
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3457/api/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3457",
+							"path": [
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "owners",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3457/api/owners/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3457",
+							"path": [
+								"api",
+								"owners",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Helloasld\",\r\n    \"address\": \"It is required 13\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3457/api/owners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3457",
+							"path": [
+								"api",
+								"owners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3457/api/owners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3457",
+							"path": [
+								"api",
+								"owners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3457/api/owners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3457",
+							"path": [
+								"api",
+								"owners"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

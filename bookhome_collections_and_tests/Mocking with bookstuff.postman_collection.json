@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "309f66bf-384a-4cae-a389-8c5fd23a6b0b",
+		"name": "Mocking with bookstuff",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26968382",
+		"_collection_link": "https://www.postman.com/aviation-engineer-97338859/workspace/my-workspace/collection/26968382-309f66bf-384a-4cae-a389-8c5fd23a6b0b?action=share&creator=26968382&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "books",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/books",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/books",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"644129d475e983071dea2e0d\",\n        \"authors\": [\n            {\n                \"_id\": \"643f1a41176e03c50b34dfd2\",\n                \"name\": \"Daija Cruickshank\"\n            }\n        ],\n        \"bookOwner\": [\n            {\n                \"_id\": \"643f1a43176e03c50b34e0a0\",\n                \"name\": \"Donald Trump\"\n            }\n        ],\n        \"title\": \"Nesciunt quasi\",\n        \"genre\": \"Weird Shit\",\n        \"rating\": 3,\n        \"releaseDate\": \"2022-07-20\",\n        \"description\": \"Non provident velit perspiciatis accusamus excepturi. Dicta rerum maiores. Fugiat consequuntur libero blanditiis. Architecto hic architecto iure cumque. Eos cum laudantium nam harum ab illo temporibus possimus.\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "authors",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/authors",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"authors"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/authors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"_id\": \"643f1a41176e03c50b34dfd2\",\r\n        \"name\": \"Daija Cruickshank\",\r\n        \"age\": \"22\",\r\n        \"gender\": \"female\",\r\n        \"__v\": 0\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "owners",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/owners",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"owners"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/owners",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"owners"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"_id\": \"643f1a43176e03c50b34e09c\",\r\n        \"name\": \"Carmel Schuppe\",\r\n        \"age\": \"58\",\r\n        \"email\": \"Franz_Langosh44@yahoo.com\",\r\n        \"address\": \"Adriana Squares 77\",\r\n        \"__v\": 0\r\n    }\r\n]"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://b317136e-a935-4f79-aee0-0baea6f0b828.mock.pstmn.io"
+		}
+	]
+}
