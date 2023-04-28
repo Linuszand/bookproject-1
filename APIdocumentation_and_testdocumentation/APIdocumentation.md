@@ -31,6 +31,8 @@
   - [api/authors search queries 3.2](#apiauthors-search-queries-32)
   - [api/owners search queries 3.3](#apiowners-search-queries-33)
 - [Error Handling](#error-handling)
+- [Rate Limiting](#rate-limiting)
+- [End](#end)
 
 # Bookhome Documentation | 1
 The bookhome API provides a RESTful interface for books, authors and owners
@@ -48,7 +50,7 @@ Add an {id} to the end of an endpoint to get one book, author or owner.
 example: http://localhost:3457/api/books/644691a8f8fdbc7b4399669e
 ```
 # Authorization and Authentication
-This API is local, so right now you can only access it by copying my API-code and using my connections tring to connect to the API.
+This API is local, so right now you can only access it by copying or forking my github repository and using a MongoDB Atlas connection string to connect to the database.
 
 # Endpoints and HTTP Methods explained with Examples | 2
 ## api/books | 2.1
@@ -465,3 +467,10 @@ address=Nicolette%20Grove%209
 |400|Bad request|API Cannot process request because of invalid syntax|Invalid request parameters or missing required parameters|Check the request parameters and make sure they're valid|
 |404|Not found|The requested response could not be found|Invalid endpoint or deleted object/identifier|Make sure the object/identifier or endpoint exists before you make the request|
 |500|Internal Server Error|Something happened to the server that prevents it from fulfilling the request|Server-side error or bug or internet connection fail|Make sure database is connected and running or contact server owner/administrator|
+
+# Rate Limiting
+My API has a rate limiter built in. To avoid exceeding the limit, just make sure you don't send more than 100 request under one minute. It resets every minute.
+
+# End
+Thanks for everything. LZA
+

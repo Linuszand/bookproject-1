@@ -475,6 +475,500 @@
 			"name": "Automatic tests",
 			"item": [
 				{
+					"name": "HTTP Methods",
+					"item": [
+						{
+							"name": "8 HTTP Methods GET",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"GET books request returns status code 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.sendRequest(\"http://localhost:3457/api/authors\", function (error, response) {\r",
+											"    pm.test(\"GET authors request returns status code 200\", function () {\r",
+											"        pm.expect(response.code).to.equal(200)\r",
+											"    }) \r",
+											"})\r",
+											"\r",
+											"pm.sendRequest(\"http://localhost:3457/api/owners\", function (error, response) {\r",
+											"    pm.test(\"GET owners request returns status code 200\", function () {\r",
+											"        pm.expect(response.code).to.equal(200)\r",
+											"    }) \r",
+											"})\r",
+											"    \r",
+											"\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3457/api/books",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3457",
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "8.3 HTTP Methods POST books",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"POST request returns status code 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"    \r",
+											"\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Hello again\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3457/api/books",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3457",
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "8.4 HTTP Methods POST authors",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"POST request returns status code 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"    \r",
+											"\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Brida\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3457/api/authors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3457",
+									"path": [
+										"api",
+										"authors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "8.5 HTTP Methods POST owners",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"POST request returns status code 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"    \r",
+											"\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Butfried\",\r\n    \"address\": \"It is required 13\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3457/api/owners",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3457",
+									"path": [
+										"api",
+										"owners"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "8.6 HTTP Methods PUT books",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"PUT request returns status code 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Something\",\r\n    \"genre\": \"Horror\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3457/api/books/6448860b01e8ff679d8497dd",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3457",
+									"path": [
+										"api",
+										"books",
+										"6448860b01e8ff679d8497dd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "8.6 HTTP Methods PUT authors",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"PUT request returns status code 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Karl Svensson\",\r\n    \"age\": 7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3457/api/authors/6448860601e8ff679d84964b",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3457",
+									"path": [
+										"api",
+										"authors",
+										"6448860601e8ff679d84964b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "8.6 HTTP Methods PUT owners",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"PUT request returns status code 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Uthred Ragnarson\",\r\n    \"email\": \"uthred@nodehill.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3457/api/owners/6448860801e8ff679d849708",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3457",
+									"path": [
+										"api",
+										"owners",
+										"6448860801e8ff679d849708"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "8.7 HTTP Methods DELETE books",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"DELETE book request returns status code 200\", function () {\r",
+											"    pm.response.to.have.status(200)\r",
+											"});\r",
+											"\r",
+											"pm.sendRequest({url: \"http://localhost:3457/api/authors/6448860601e8ff679d84964f\", method: 'DELETE'}, function (error, response) {\r",
+											"    pm.test(\"DELETE author request returns status code 200\", function () {\r",
+											"    pm.expect(response.code).to.equal(200)\r",
+											"});\r",
+											"})\r",
+											"\r",
+											"pm.sendRequest({url: \"http://localhost:3457/api/owners/6448860801e8ff679d84970e\", method: 'DELETE'}, function (error, response) {\r",
+											"    pm.test(\"DELETE owner request returns status code 200\", function () {\r",
+											"    pm.expect(response.code).to.equal(200)\r",
+											"});\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3457/api/books/6448860b01e8ff679d8497e3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3457",
+									"path": [
+										"api",
+										"books",
+										"6448860b01e8ff679d8497e3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Subsequent requests",
+					"item": [
+						{
+							"name": "9 Subsequent requests GET",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json()\r",
+											"\r",
+											"pm.test(\"Status code is 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200)\r",
+											"})\r",
+											"\r",
+											"pm.test(\"Has property title\", function ()  {\r",
+											"    pm.expect(jsonData).to.have.property('title', \"Repudiandae aliquam\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Has property rating\", function ()  {\r",
+											"    pm.expect(jsonData).to.have.property('rating', 2);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3457/api/books/6448860d01e8ff679d849883",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3457",
+									"path": [
+										"api",
+										"books",
+										"6448860d01e8ff679d849883"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "9.1 Subsequent requests PUT",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Repudiandae aliquam updated\",\r\n    \"rating\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3457/api/books/6448860d01e8ff679d849883",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3457",
+									"path": [
+										"api",
+										"books",
+										"6448860d01e8ff679d849883"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "9.2 Subsequent requests GET after PUT",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json()\r",
+											"\r",
+											"pm.test(\"Status code is 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200)\r",
+											"})\r",
+											"\r",
+											"pm.test(\"Has property title\", function ()  {\r",
+											"    pm.expect(jsonData).to.have.property('title', \"Repudiandae aliquam updated\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Has property rating\", function ()  {\r",
+											"    pm.expect(jsonData).to.have.property('rating', 4);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3457/api/books/6448860d01e8ff679d849883",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3457",
+									"path": [
+										"api",
+										"books",
+										"6448860d01e8ff679d849883"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "1 Correct status code(200 OK)",
 					"event": [
 						{
@@ -858,490 +1352,6 @@
 					"response": []
 				},
 				{
-					"name": "8 HTTP Methods GET",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"GET books request returns status code 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.sendRequest(\"http://localhost:3457/api/authors\", function (error, response) {\r",
-									"    pm.test(\"GET authors request returns status code 200\", function () {\r",
-									"        pm.expect(response.code).to.equal(200)\r",
-									"    }) \r",
-									"})\r",
-									"\r",
-									"pm.sendRequest(\"http://localhost:3457/api/owners\", function (error, response) {\r",
-									"    pm.test(\"GET owners request returns status code 200\", function () {\r",
-									"        pm.expect(response.code).to.equal(200)\r",
-									"    }) \r",
-									"})\r",
-									"    \r",
-									"\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3457/api/books",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3457",
-							"path": [
-								"api",
-								"books"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "8.3 HTTP Methods POST books",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"POST request returns status code 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"    \r",
-									"\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Hello again\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3457/api/books",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3457",
-							"path": [
-								"api",
-								"books"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "8.4 HTTP Methods POST authors",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"POST request returns status code 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"    \r",
-									"\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Brida\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3457/api/authors",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3457",
-							"path": [
-								"api",
-								"authors"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "8.5 HTTP Methods POST owners",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"POST request returns status code 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"    \r",
-									"\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Butfried\",\r\n    \"address\": \"It is required 13\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3457/api/owners",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3457",
-							"path": [
-								"api",
-								"owners"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "8.6 HTTP Methods PUT books",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"PUT request returns status code 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Something\",\r\n    \"genre\": \"Horror\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3457/api/books/6448860b01e8ff679d8497dd",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3457",
-							"path": [
-								"api",
-								"books",
-								"6448860b01e8ff679d8497dd"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "8.6 HTTP Methods PUT authors",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"PUT request returns status code 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Karl Svensson\",\r\n    \"age\": 7\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3457/api/authors/6448860601e8ff679d84964b",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3457",
-							"path": [
-								"api",
-								"authors",
-								"6448860601e8ff679d84964b"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "8.6 HTTP Methods PUT owners",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"PUT request returns status code 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Uthred Ragnarson\",\r\n    \"email\": \"uthred@nodehill.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3457/api/owners/6448860801e8ff679d849708",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3457",
-							"path": [
-								"api",
-								"owners",
-								"6448860801e8ff679d849708"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "8.7 HTTP Methods DELETE books",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"DELETE book request returns status code 200\", function () {\r",
-									"    pm.response.to.have.status(200)\r",
-									"});\r",
-									"\r",
-									"pm.sendRequest({url: \"http://localhost:3457/api/authors/6448860601e8ff679d84964f\", method: 'DELETE'}, function (error, response) {\r",
-									"    pm.test(\"DELETE author request returns status code 200\", function () {\r",
-									"    pm.expect(response.code).to.equal(200)\r",
-									"});\r",
-									"})\r",
-									"\r",
-									"pm.sendRequest({url: \"http://localhost:3457/api/owners/6448860801e8ff679d84970e\", method: 'DELETE'}, function (error, response) {\r",
-									"    pm.test(\"DELETE owner request returns status code 200\", function () {\r",
-									"    pm.expect(response.code).to.equal(200)\r",
-									"});\r",
-									"})"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3457/api/books/6448860b01e8ff679d8497e3",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3457",
-							"path": [
-								"api",
-								"books",
-								"6448860b01e8ff679d8497e3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "9 Subsequent requests GET",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var jsonData = pm.response.json()\r",
-									"\r",
-									"pm.test(\"Status code is 200 OK\", function () {\r",
-									"    pm.response.to.have.status(200)\r",
-									"})\r",
-									"\r",
-									"pm.test(\"Has property title\", function ()  {\r",
-									"    pm.expect(jsonData).to.have.property('title', \"Repudiandae aliquam\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Has property rating\", function ()  {\r",
-									"    pm.expect(jsonData).to.have.property('rating', 2);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3457/api/books/6448860d01e8ff679d849883",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3457",
-							"path": [
-								"api",
-								"books",
-								"6448860d01e8ff679d849883"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "9.1 Subsequent requests PUT",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Repudiandae aliquam updated\",\r\n    \"rating\": 4\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3457/api/books/6448860d01e8ff679d849883",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3457",
-							"path": [
-								"api",
-								"books",
-								"6448860d01e8ff679d849883"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "9.2 Subsequent requests GET after PUT",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var jsonData = pm.response.json()\r",
-									"\r",
-									"pm.test(\"Status code is 200 OK\", function () {\r",
-									"    pm.response.to.have.status(200)\r",
-									"})\r",
-									"\r",
-									"pm.test(\"Has property title\", function ()  {\r",
-									"    pm.expect(jsonData).to.have.property('title', \"Repudiandae aliquam updated\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Has property rating\", function ()  {\r",
-									"    pm.expect(jsonData).to.have.property('rating', 4);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3457/api/books/6448860d01e8ff679d849883",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3457",
-							"path": [
-								"api",
-								"books",
-								"6448860d01e8ff679d849883"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "10 Heavy load requests",
 					"event": [
 						{
@@ -1502,9 +1512,10 @@
 									"for (let i = 0; i < 100; i++) {\r",
 									"  pm.sendRequest(\"http://localhost:3457/api/books\", function (error, response) {\r",
 									"    const rateLimitLeft = response.headers.get(\"X-RateLimit-Remaining\");\r",
-									"    pm.test(`Status code is 200 and there are ${rateLimitLeft} requests left`);\r",
+									"    \r",
 									"    if (response.code !== 429) {\r",
-									"      pm.expect(response.code).to.equal(200);\r",
+									"        pm.test(`Status code is 200 and there are ${rateLimitLeft} requests left`);\r",
+									"        pm.expect(response.code).to.equal(200);\r",
 									"    } else {\r",
 									"      pm.test(\"Rate limit reached\", function () {\r",
 									"        pm.expect(response.code).to.equal(429);\r",

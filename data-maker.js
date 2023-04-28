@@ -7,7 +7,6 @@ const connection = "mongodb+srv://linus:eQqNJRreQJXZVAt2@bookhome.yvh0dhe.mongod
 let books = []
 let authors = []
 let owners = []
-
 let genreList = ['Fantasy', 'Comedy', 'Action', 'Drama', 'Sci-fi', 'Horror', 'Documentary', 'Romance', 'Thriller', 'History', 'Western']
 
 async function run() {
@@ -42,7 +41,7 @@ async function booksData(mode = true) {
     const bookNumber = getRandomInt(3, 4);
     for (let i = 0; i < bookNumber; i++) {
       const book = new bookModel();
-      // generates 1-3 words randomly from faker.lorem.words and then turns the first letter in the title to uppercase + the rest words(titleWords.slice(1))
+      // generates 1-3 words randomly from faker.lorem.words and then turns the first letter in the title to uppercase + rest of the words(titleWords.slice(1))
       const bookTitle = Math.round(Math.random() * 3) + 1;
       const titleWords = faker.lorem.words(bookTitle);
       const title = titleWords.charAt(0).toUpperCase() + titleWords.slice(1);

@@ -45,7 +45,7 @@ mongoose.connect(connection, { dbName: 'bookhome' })
 ## API documentation | 3.1
 Go to my APIdocumentation to get more information about what endpoints and search criterias there are.
 ## Manual and Automatic tests documentation | 3.2
-Go to my ManualandAutomatictestdocumentation to get more information about the tests that I have tested for this API.
+Go to my ManualandAutomatictestdocumentation to get more information about the tests that I have for this API.
 
 # How to use the bookhome API | 4
 1. Write npm install in the Git Bash terminal.
