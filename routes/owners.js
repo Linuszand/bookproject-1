@@ -26,7 +26,7 @@ ownersRouter.post("/", async (request, response) => {
 
 ownersRouter.get("/", async (request, response) => {
   let query = {}
-
+  // search queries
   if (request.query.name) {
     query.name = new RegExp(request.query.name, 'i')
   }

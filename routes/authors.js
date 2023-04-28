@@ -22,7 +22,7 @@ authorsRouter.post("/", async (request, response) => {
 
 authorsRouter.get("/", async (request, response) => {
   let query = {}
-
+  // search queries
   if (request.query.name) {
     query.name = new RegExp(request.query.name, 'i')
   }
