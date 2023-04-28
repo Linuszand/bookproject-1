@@ -30,8 +30,8 @@ You need a git clone and to make a new project on MongoDB Atlas!
 
 # Use MongoDB Atlas to be able to use this API
 1. Go to MongoDB Atlas and sign in(https://www.mongodb.com/atlas/)
-2. Make a new project once you're logged in and create a MongoDB Atlas cluster.
-3. Go to "Database access" under the "Security" tab and create a new user with username and password 
+2. Make a new project once you're logged in and create a MongoDB Atlas cluster(Choose the free options M0 when deploying the database!).
+3. After you're done with that, go to "Database access" under the "Security" tab and create a new user with username and password 
 4. Then go to "Network access" and Add your IP address to the whitelist to able to connect to the database.
 5. After that you need to get the connection string by clicking on connect.
 6. Replace my URI in the api.js`("mongodb+srv://linus:eQqNJRreQJXZVAt2@bookhome.yvh0dhe.mongodb.net/test")` with your URI `(mongodb+srv://:username:::password:@bookhome.yvh0dhe.mongodb.net/test)`
