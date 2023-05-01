@@ -19,7 +19,9 @@ ownersRouter.post("/", async (request, response) => {
   owner.age = request.body.age;
   owner.email = request.body.email;
   owner.address = request.body.address
-
+  if (!request.body.email || !request.body.address) {
+    return response.status(400).json({ error: "E-mail and Address are required."})
+  }
   const result = await owner.save();
   response.json(result);
 });

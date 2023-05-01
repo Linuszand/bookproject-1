@@ -16,6 +16,9 @@ authorsRouter.post("/", async (request, response) => {
   author.name = request.body.name;
   author.age = request.body.age;
   author.gender = request.body.gender;
+  if (!request.body.name) {
+    return response.status(400).json({ error: "Name is required."})
+  }
   const result = await author.save();
   response.json(result);
 });
