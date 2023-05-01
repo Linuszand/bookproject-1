@@ -7,7 +7,7 @@ const bookSchema = new Schema({
   title: { type: String, required: true, unique: true },
   genre: String,
   rating: Number,
-  releaseDate: Date,
+  releaseDate: { type: Date, required: true },
   description: String,
   authors: [{ type: mongoose.Schema.Types.ObjectId, ref: "authors" }],
   bookOwner: { type: mongoose.Schema.Types.ObjectId, ref: "owners" }
@@ -25,6 +25,10 @@ booksRouter.post("/", async (request, response) => {
   book.releaseDate = request.body.releaseDate
   book.description = request.body.description
   book.bookOwner = request.body.bookOwner
+  if (!request.body.releaseDate || !request.body.title) {
+    return response.status(400).json({ error: "Release date and title are required." })
+  }
+  
   const result = await book.save()
   response.json(result)
 });
