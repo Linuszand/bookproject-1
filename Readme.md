@@ -1,4 +1,4 @@
-# Table of Contents | 0
+Qqq# Table of Contents | 0
 - [Table of Contents | 0](#table-of-contents--0)
 - [Bookhome | 1](#bookhome--1)
 - [Step by Step Instructions to get access to repository | 2](#step-by-step-instructions-to-get-access-to-repository--2)
@@ -34,7 +34,7 @@ You need a git clone and to make a new project on MongoDB Atlas!
 3. After you're done with that, go to "Database access" under the "Security" tab and create a new user with username and password 
 4. Then go to "Network access" and Add your IP address to the whitelist to able to connect to the database.
 5. After that you need to get the connection string by clicking on connect.
-6. Replace my URI in the api.js`("mongodb+srv://linus:eQqNJRreQJXZVAt2@bookhome.yvh0dhe.mongodb.net/test")` with your URI `(mongodb+srv://:username:::password:@bookhome.yvh0dhe.mongodb.net/test)`
+6. Replace my URI in the api.js`("mongodb+srv://linus:eQqNJRreQJXZVAt2@bookhome.yvh0dhe.mongodb.net/test")` with your URI.
 7. Last but not least replace the `mongoose.connect(connection, { dbName: 'bookhome' })` with your cluster name
 
 ```
