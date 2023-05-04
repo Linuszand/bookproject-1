@@ -36,7 +36,7 @@ booksRouter.post("/", async (request, response) => {
 booksRouter.get("/", async (request, response) => {
   // To test database connection automated test
   if (request.query.simulateError === "true") {
-    return response.status(500).json({ error: "Could not connect to database" });
+    return response.status(500).json({ error: "Could not connect to database" })
   }
 
   let query = {}
@@ -55,8 +55,8 @@ booksRouter.get("/", async (request, response) => {
     }
     if (request.query.releaseDate) {
       const releaseDate = new Date(request.query.releaseDate);
-      const yearStart = new Date(`${releaseDate.getFullYear()}-01-01`);
-      const yearEnd = new Date(`${releaseDate.getFullYear()}-12-31`);
+      const yearStart = new Date(`${releaseDate.getFullYear()}-01-01`)
+      const yearEnd = new Date(`${releaseDate.getFullYear()}-12-31`)
 
       query.releaseDate = {
         $gte: yearStart,
@@ -77,11 +77,11 @@ booksRouter.get("/", async (request, response) => {
     }))
     // Paginated results added to the API
     const totalCount = await mongoose.models.books.countDocuments(query);
-    const totalPages = Math.round(totalCount / limit);
+    const totalPages = Math.round(totalCount / limit)
     const currentPage = Math.round(offset / limit) + 1;
     // Paginated results headers
-    response.header('Total-Pages', totalPages);
-    response.header('Current-Page', currentPage);
+    response.header('Total-Pages', totalPages)
+    response.header('Current-Page', currentPage)
 
     response.json(formattedBooks)
   

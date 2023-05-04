@@ -52,13 +52,13 @@ ownersRouter.get("/:id", async (request, response) => {
 });
 
 ownersRouter.delete("/:id", async (request, response) => {
-  const deleteowner = await mongoose.models.owners.findByIdAndDelete(request.params.id);
-  response.json({ message: "owner deleted successfully", deleted_owner_name: deleteowner.name, data: deleteowner });
+  const deleteowner = await mongoose.models.owners.findByIdAndDelete(request.params.id)
+  response.json({ message: "owner deleted successfully", deleted_owner_name: deleteowner.name, data: deleteowner })
 });
 
 ownersRouter.put("/:id", async (request, response) => {
-  const owner = await mongoose.models.owners.findByIdAndUpdate(request.params.id, request.body, { new: true });
-  response.json({ message: "Successfully updated", owner });
+  const owner = await mongoose.models.owners.findByIdAndUpdate(request.params.id, request.body, { new: true })
+  response.json({ message: "Successfully updated", owner })
 });
 
 export default ownersRouter;
