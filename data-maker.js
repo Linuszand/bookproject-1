@@ -38,29 +38,29 @@ async function booksData(mode = true) {
   // Generate books for each author
   let fakerGenreRandomInt = faker.datatype.number({ min: 0, max: 10 })
   for (const author of authors) {
-    const bookNumber = getRandomInt(3, 4);
+    const bookNumber = getRandomInt(3, 4)
     for (let i = 0; i < bookNumber; i++) {
       const book = new bookModel();
       // generates 1-3 words randomly from faker.lorem.words and then turns the first letter in the title to uppercase + rest of the words(titleWords.slice(1))
-      const bookTitle = Math.round(Math.random() * 3) + 1;
-      const titleWords = faker.lorem.words(bookTitle);
-      const title = titleWords.charAt(0).toUpperCase() + titleWords.slice(1);
+      const bookTitle = Math.round(Math.random() * 3) + 1
+      const titleWords = faker.lorem.words(bookTitle)
+      const title = titleWords.charAt(0).toUpperCase() + titleWords.slice(1)
       book.title = title;
       // Assigns a book to the author id
       book.authors = [author._id];
       console.log(author._id)
 
-      book.genre = genreList[fakerGenreRandomInt];
-      book.rating = faker.datatype.number({ min: 1, max: 5 });
+      book.genre = genreList[fakerGenreRandomInt]
+      book.rating = faker.datatype.number({ min: 1, max: 5 })
       book.releaseDate = faker.date.past(80);
-      book.description = faker.lorem.paragraph();
+      book.description = faker.lorem.paragraph()
 
       try {
-        const result = await book.save();
-        books.push(result);
-        console.log(books);
+        const result = await book.save()
+        books.push(result)
+        console.log(books)
       } catch (e) {
-        console.error(e);
+        console.error(e)
       }
     }
   }

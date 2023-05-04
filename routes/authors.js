@@ -9,13 +9,13 @@ const authorSchema = new Schema({
   gender: String
 });
 
-export const authorModel = mongoose.model("authors", authorSchema);
+export const authorModel = mongoose.model("authors", authorSchema)
 
 authorsRouter.post("/", async (request, response) => {
-  const author = new mongoose.models.authors();
-  author.name = request.body.name;
-  author.age = request.body.age;
-  author.gender = request.body.gender;
+  const author = new mongoose.models.authors()
+  author.name = request.body.name
+  author.age = request.body.age
+  author.gender = request.body.gender
   if (!request.body.name) {
     return response.status(400).json({ error: "Name is required."})
   }
@@ -51,7 +51,7 @@ authorsRouter.delete("/:id", async (request, response) => {
 
 authorsRouter.put("/:id", async (request, response) => {
   const author = await mongoose.models.authors.findByIdAndUpdate(request.params.id, request.body, { new: true });
-  response.json({ message: "Successfully updated", author });
+  response.json({ message: "Successfully updated", author })
 });
 
 export default authorsRouter;
