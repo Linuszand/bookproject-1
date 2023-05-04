@@ -267,7 +267,7 @@ To verify that the API returns paginated results when a large number of records 
 ### Test Results | 1.5
 |Test Case|Expected Result|Actual Result|Pass/fail|
 |:--------|:--------------|:------------|:--------|
-|Verify that the API returns paginated results when a large number of records are requested|API to return paginated results after sending a GET request with many records|API returns paginated results after sending a GET request with many recrods|Pass|
+|Verify that the API returns paginated results when a large number of records are requested|API to return paginated results after sending a GET request with many records|API returns paginated results after sending a GET request with many records|Pass|
 ### Test Report | 1.5
 The response headers have paginated results after sending a GET request with many records, therefore the expected result matches the actual result.
 

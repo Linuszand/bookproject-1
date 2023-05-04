@@ -77,7 +77,7 @@ Response:
             "name": "Karson Gibson"
         },
         "__v": 0
-    }
+    },
     and it continues...
 ]
 ```
@@ -112,9 +112,6 @@ Response:
     "__v": 0
 }
 ```
-
-
-
 
 ## api/books/{id} | 2.2
 ### GET

@@ -33,8 +33,6 @@ booksRouter.post("/", async (request, response) => {
   response.json(result)
 });
 
-
-
 booksRouter.get("/", async (request, response) => {
   // To test database connection automated test
   if (request.query.simulateError === "true") {
@@ -103,7 +101,6 @@ booksRouter.get("/:id", async (request, response) => {
     response.status(400).json({ error: "Invalid ID" })
   }
 })
-
 
 booksRouter.delete("/:id", async (request, response) => {
   const deletebook = await mongoose.models.books.findByIdAndDelete(request.params.id)

@@ -2,6 +2,7 @@ import express from 'express'
 const api = express()
 api.use(express.json())
 // Rate limiting to prevent abuse
+
 import rateLimit from "express-rate-limit";
 const limiter = rateLimit({
   windowMs: 60000, // 1 minute
